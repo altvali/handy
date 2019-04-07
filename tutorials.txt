@@ -1,0 +1,41 @@
+Robotics Fundamentals:
+https://www.youtube.com/watch?v=d3MBTT10pxk&list=PLBcrWxTa5CS2eHsNXcfdCML4syi7t34p1
+
+How to power a project:
+https://learn.sparkfun.com/tutorials/how-to-power-a-project
+
+Connector Fundamentals:
+https://learn.sparkfun.com/tutorials/connector-basics
+
+Blender Fundamentals:
+https://www.youtube.com/watch?v=kes2qmijy7w&list=PLa1F2ddGya_8V90Kd5eC5PeBjySbXWGK1
+https://www.youtube.com/watch?v=VT5oZndzj68&list=PLjEaoINr3zgHs8uzT3yqe4iHGfkCmMJ0P
+https://www.youtube.com/watch?v=yi87Dap_WOc&list=PLjEaoINr3zgHJVJF3T3CFUAZ6z11jKg6a
+
+ROS Fundamentals:
+https://wiki.ros.org/ROS/Tutorials#Beginner_Level (just Beginner Level suffices)
+
+Gazebo Fundamentals:
+http://gazebosim.org/tutorials/ (Beginner and Intermediate)
+
+Arduino tutorial:
+https://www.youtube.com/watch?v=nL34zDTPkcs
+
+Pulse-Width Modulation:
+https://learn.sparkfun.com/tutorials/pulse-width-modulation
+
+I2C communication:
+https://learn.sparkfun.com/tutorials/i2c
+
+Kalman filters:
+https://www.me.utexas.edu/~longoria/CyVS/notes/references/09_Faragher_Understanding_KF_2012.pdf
+
+Inertial Measuring Unit Hookup guide:
+https://learn.sparkfun.com/tutorials/lsm9ds1-breakout-hookup-guide
+
+Preparing Blender Files for 3D printing
+https://www.shapeways.com/tutorials/prepping_blender_files_for_3d_printing
+
+Wire Amperage:
+https://www.bluesea.com/resources/529/Allowable_Amperage_in_Conductors_-_Wire_Sizing_Chart
+
