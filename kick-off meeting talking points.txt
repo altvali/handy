@@ -1,0 +1,38 @@
+Summary:
+
+- milestones:
+
+- what does everyone want to get out of participating
+
+- components and other designs
+    - gears: lifting an anvil https://www.youtube.com/watch?v=b6cDOyxub8w
+    - gears: OT Vinta https://www.youtube.com/channel/UCBhCLkSm7dXnOj6I2DsuG5g/videos
+    - modular wrist: https://www.youtube.com/watch?v=NxJs6HzO1eQ
+    - CURA
+
+- schematics
+
+- tutorials
+
+
+Milestones:
+===========
+1. Completed glove, ability to read out the IMU and all the pots
+
+2. Hand and representation in Gazebo, based on glove readings
+3. Completed hand, random motion.
+4. Completed hand moves its 6 DoF based on glove's 16 DoF
+5. Arm representation in Gazebo
+6. Arm in Gazebo, motion directed by glove
+    - Kalman filter for IMU
+    https://www.youtube.com/watch?v=fzjEMOOBuFA
+7. Completed arm, random motion
+8. Calibrated arm motion in simulator, based on real arm motion
+9. Teleoperation of real arm
+    - measure latency
+    - measure speed of execution
+    - accuracy
+    - repeatability
+    - reach
+    - load
+10. Integration with suspended top
