@@ -24,3 +24,7 @@ cd ~/catkin_ws
 catkin_make
 
 Horizontal menu: Simulations: Select launch file... "handy_hand hand.launch"
+
+
+OpenBionincs Brunel Hand:
+https://www.thingiverse.com/thing:3000641
