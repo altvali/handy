@@ -1,0 +1,26 @@
+grip types https://www.kenhub.com/en/library/anatomy/anatomy-of-grip
+https://www.youtube.com/watch?v=JkNL1sDN2sw a group of tests from bebionic
+https://www.youtube.com/watch?v=jwSbzNHGflM OpenAI test
+https://www.youtube.com/watch?v=rIFV0zXg3Fc Open Bionics test
+https://www.youtube.com/watch?v=T45wbMx1QEU RoboRay Hand test
+https://www.youtube.com/watch?v=5kb7U1qzBvc Yale hand
+
+make your gazebo hand work in rds.theconstructsim.com from scratch
+
+echo $ROS_PACKAGE_PATH
+/home/user/catkin_ws/src:/home/user/simulation_ws/src:/home/simulations/public_sim_ws/src:/opt/ros/kinetic/share
+
+how to make the gazebo hand work in rds.theconstructsim.com
+
+open shell
+
+cd ~/catkin_ws/src
+catkin_create_pkg handy_hand std_msgs rospy roscpp
+mkdir handy_hand/worlds
+nano handy_hand/worlds/hand.world
+mkdir handy_hand/launch
+nano handy_hand/launch/hand.launch
+cd ~/catkin_ws
+catkin_make
+
+Horizontal menu: Simulations: Select launch file... "handy_hand hand.launch"
