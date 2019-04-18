@@ -1,0 +1,1188 @@
+<?xml version="1.0" ?>
+<sdf version="1.5">
+  <world name="default">
+
+    <!-- A global light source -->
+    <include>
+      <uri>model://sun</uri>
+    </include>
+
+    <!-- A ground plane -->
+    <include>
+      <uri>model://ground_plane</uri>
+    </include>
+
+
+    <model name="brunel_based_hand">
+      <link name="right_wrist_yaw">
+        <pose>-0.00439 -0.202495 1.25256 3.13092 -0.00984402 -2.8447</pose>
+        <inertial>
+          <pose>0.0637396 -0.000207173 0.0218989 0 -0 0</pose>
+          <mass>1.33941</mass>
+          <inertia>
+            <ixx>0.00516672</ixx>
+            <ixy>-5.80194e-05</ixy>
+            <ixz>-0.000187327</ixz>
+            <iyy>0.00807358</iyy>
+            <iyz>0.000316215</iyz>
+            <izz>0.00654117</izz>
+          </inertia>
+        </inertial>
+        <collision name="right_wrist_yaw_collision_right_palm">
+          <pose>0 0 0 3.14 -0 1.5999</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>model://robonaut/meshes/Right_Palm.dae</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode />
+            </contact>
+            <friction>
+              <ode />
+            </friction>
+          </surface>
+          <surface>
+            <contact>
+              <ode />
+            </contact>
+            <friction>
+              <ode />
+            </friction>
+          </surface>
+        </collision>
+        <visual name="right_wrist_yaw_visual_right_palm">
+          <pose>0 0 0 3.14 -0 1.5999</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>model://robonaut/meshes/Right_Palm.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <velocity_decay>
+          <linear>0</linear>
+          <angular>0</angular>
+        </velocity_decay>
+        <velocity_decay>
+          <linear>0</linear>
+          <angular>0</angular>
+        </velocity_decay>
+        <velocity_decay>
+          <linear>0</linear>
+          <angular>0</angular>
+        </velocity_decay>
+        <gravity>1</gravity>
+        <velocity_decay>
+          <linear>0</linear>
+          <angular>0</angular>
+        </velocity_decay>
+        <self_collide>0</self_collide>
+      </link>
+
+      <link name="right_index_yaw">
+        <pose>-0.09137 -0.257636 1.2694 3.1298 -0.00846944 -2.72253</pose>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>0.001</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.001</iyy>
+            <iyz>0</iyz>
+            <izz>0.001</izz>
+          </inertia>
+        </inertial>
+        <velocity_decay>
+          <linear>0</linear>
+          <angular>0</angular>
+        </velocity_decay>
+      </link>
+      <joint name="right_arm/hand/index/joint0" type="revolute">
+        <child>right_index_yaw</child>
+        <parent>right_wrist_yaw</parent>
+        <axis>
+          <xyz>-0.0125363 0.00733032 -0.999895</xyz>
+          <limit>
+            <lower>-0.3491</lower>
+            <upper>0.3491</upper>
+            <effort>1e+07</effort>
+            <velocity>1000</velocity>
+          </limit>
+          <dynamics>
+            <damping>0.1</damping>
+          </dynamics>
+          <use_parent_model_frame>true</use_parent_model_frame>
+        </axis>
+      </joint>
+      <link name="right_index_proximal">
+      <pose>-0.10018 -0.261563 1.26948 -1.58259 -0.00846944 -2.72253</pose>
+      <inertial>
+        <pose>0 0 0 0 -0 0</pose>
+        <mass>0.05</mass>
+        <inertia>
+          <ixx>0.001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.001</iyy>
+          <iyz>0</iyz>
+          <izz>0.001</izz>
+        </inertia>
+      </inertial>
+      <collision name="right_index_proximal_collision">
+        <pose>0 0 0 0 -0 1.57</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://robonaut/meshes/Finger_Proximal.dae</uri>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode />
+          </contact>
+          <friction>
+            <ode />
+          </friction>
+        </surface>
+      </collision>
+      <visual name="right_index_proximal_visual">
+        <pose>0 0 0 0 -0 1.57</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://robonaut/meshes/Finger_Proximal.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <gravity>1</gravity>
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
+      <self_collide>0</self_collide>
+    </link>
+    <joint name="right_arm/hand/index/joint1" type="revolute">
+      <child>right_index_proximal</child>
+      <parent>right_index_yaw</parent>
+      <axis>
+        <xyz>0.406785 -0.913448 -0.011797</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>1.57</upper>
+          <effort>1e+07</effort>
+          <velocity>1000</velocity>
+        </limit>
+        <dynamics>
+          <damping>0.1</damping>
+        </dynamics>
+        <use_parent_model_frame>true</use_parent_model_frame>
+      </axis>
+    </joint>
+      <link name="right_index_medial">
+        <pose>-0.14079 -0.279649 1.26986 -1.58259 -0.00846944 -2.72253</pose>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>0.001</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.001</iyy>
+            <iyz>0</iyz>
+            <izz>0.001</izz>
+          </inertia>
+        </inertial>
+        <collision name="right_index_medial_collision">
+          <pose>0 0 0 3.14 4.33681e-19 1.57</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>model://robonaut/meshes/Finger_Mid.dae</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode />
+            </contact>
+            <friction>
+              <ode />
+            </friction>
+          </surface>
+        </collision>
+        <visual name="right_index_medial_visual">
+          <pose>0 0 0 3.14 4.33681e-19 1.57</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>model://robonaut/meshes/Finger_Mid.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <gravity>1</gravity>
+        <velocity_decay>
+          <linear>0</linear>
+          <angular>0</angular>
+        </velocity_decay>
+        <self_collide>0</self_collide>
+      </link>
+      <joint name="right_arm/hand/index/joint2" type="revolute">
+        <child>right_index_medial</child>
+        <parent>right_index_proximal</parent>
+        <axis>
+          <xyz>0.406785 -0.913448 -0.011797</xyz>
+          <limit>
+            <lower>0</lower>
+            <upper>1.57</upper>
+            <effort>1e+07</effort>
+            <velocity>1000</velocity>
+          </limit>
+          <dynamics>
+            <damping>0.1</damping>
+          </dynamics>
+          <use_parent_model_frame>true</use_parent_model_frame>
+        </axis>
+      </joint>
+      <link name="right_index_distal">
+        <pose>-0.16863 -0.292051 1.27012 -1.58259 -0.00846944 -2.72253</pose>
+        <inertial>
+          <pose>0.012319 0 0 0 -0 0</pose>
+          <mass>0.1</mass>
+          <inertia>
+            <ixx>0.002</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.00201518</iyy>
+            <iyz>0</iyz>
+            <izz>0.00201518</izz>
+          </inertia>
+        </inertial>
+        <collision name="right_index_distal_collision">
+          <pose>0 0 0 0 -1.57 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>model://robonaut/meshes/Finger_Dist.dae</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode />
+            </contact>
+            <friction>
+              <ode />
+            </friction>
+          </surface>
+        </collision>
+        <visual name="right_index_distal_visual">
+          <pose>0 0 0 0 -1.57 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>model://robonaut/meshes/Finger_Dist.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <gravity>1</gravity>
+        <velocity_decay>
+          <linear>0</linear>
+          <angular>0</angular>
+        </velocity_decay>
+        <self_collide>0</self_collide>
+      </link>
+      <joint name="right_arm/hand/index/joint3" type="revolute">
+        <child>right_index_distal</child>
+        <parent>right_index_medial</parent>
+        <axis>
+          <xyz>0.406785 -0.913448 -0.011797</xyz>
+          <limit>
+            <lower>0</lower>
+            <upper>1.57</upper>
+            <effort>1e+07</effort>
+            <velocity>1000</velocity>
+          </limit>
+          <dynamics>
+            <damping>0.1</damping>
+          </dynamics>
+          <use_parent_model_frame>true</use_parent_model_frame>
+        </axis>
+      </joint>
+
+      <link name="right_middle_yaw">
+        <pose>-0.10525 -0.236187 1.26973 3.13092 -0.00984402 -2.8447</pose>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <mass>0.001</mass>
+          <inertia>
+            <ixx>0.001</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.001</iyy>
+            <iyz>0</iyz>
+            <izz>0.001</izz>
+          </inertia>
+        </inertial>
+        <velocity_decay>
+          <linear>0</linear>
+          <angular>0</angular>
+        </velocity_decay>
+      </link>
+      <joint name="right_arm/hand/middle/joint0" type="revolute">
+        <child>right_middle_yaw</child>
+        <parent>right_wrist_yaw</parent>
+        <axis>
+          <xyz>-0.0125363 0.00733032 -0.999895</xyz>
+          <limit>
+            <lower>-0.3491</lower>
+            <upper>0.3491</upper>
+            <effort>1e+07</effort>
+            <velocity>1000</velocity>
+          </limit>
+          <dynamics>
+            <damping>0.1</damping>
+          </dynamics>
+          <use_parent_model_frame>true</use_parent_model_frame>
+        </axis>
+      </joint>
+      <link name="right_middle_proximal">
+        <pose>-0.11448 -0.239011 1.26983 -1.58147 -0.00984402 -2.8447</pose>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>0.001</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.001</iyy>
+            <iyz>0</iyz>
+            <izz>0.001</izz>
+          </inertia>
+        </inertial>
+        <collision name="right_middle_proximal_collision">
+          <pose>0 0 0 0 -0 1.57</pose>
+          <geometry>
+            <mesh>
+              <scale>0.9 0.9 0.9</scale>
+              <uri>model://robonaut/meshes/Finger_Proximal.dae</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode />
+            </contact>
+            <friction>
+              <ode />
+            </friction>
+          </surface>
+        </collision>
+        <visual name="right_middle_proximal_visual">
+          <pose>0 0 0 0 -0 1.57</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>model://robonaut/meshes/Finger_Proximal.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <gravity>1</gravity>
+        <velocity_decay>
+          <linear>0</linear>
+          <angular>0</angular>
+        </velocity_decay>
+        <self_collide>0</self_collide>
+      </link>
+      <joint name="right_arm/hand/middle/joint1" type="revolute">
+        <child>right_middle_proximal</child>
+        <parent>right_middle_yaw</parent>
+        <axis>
+          <xyz>0.292433 -0.956226 -0.0106769</xyz>
+          <limit>
+            <lower>0</lower>
+            <upper>1.57</upper>
+            <effort>1e+07</effort>
+            <velocity>1000</velocity>
+          </limit>
+          <dynamics>
+            <damping>0.1</damping>
+          </dynamics>
+          <use_parent_model_frame>true</use_parent_model_frame>
+        </axis>
+      </joint>
+      <link name="right_middle_medial">
+        <pose>-0.15698 -0.252014 1.27026 -1.58147 -0.00984402 -2.8447</pose>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>0.001</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.001</iyy>
+            <iyz>0</iyz>
+            <izz>0.001</izz>
+          </inertia>
+        </inertial>
+        <collision name="right_middle_medial_collision">
+          <pose>0 0 0 3.14 4.33681e-19 1.57</pose>
+          <geometry>
+            <mesh>
+              <scale>0.9 0.9 0.9</scale>
+              <uri>model://robonaut/meshes/Finger_Mid.dae</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode />
+            </contact>
+            <friction>
+              <ode />
+            </friction>
+          </surface>
+        </collision>
+        <visual name="right_middle_medial_visual">
+          <pose>0 0 0 3.14 4.33681e-19 1.57</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>model://robonaut/meshes/Finger_Mid.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <gravity>1</gravity>
+        <velocity_decay>
+          <linear>0</linear>
+          <angular>0</angular>
+        </velocity_decay>
+        <self_collide>0</self_collide>
+      </link>
+      <joint name="right_arm/hand/middle/joint2" type="revolute">
+        <child>right_middle_medial</child>
+        <parent>right_middle_proximal</parent>
+        <axis>
+          <xyz>0.292433 -0.956226 -0.0106769</xyz>
+          <limit>
+            <lower>0</lower>
+            <upper>1.57</upper>
+            <effort>1e+07</effort>
+            <velocity>1000</velocity>
+          </limit>
+          <dynamics>
+            <damping>0.1</damping>
+          </dynamics>
+          <use_parent_model_frame>true</use_parent_model_frame>
+        </axis>
+      </joint>
+      <link name="right_middle_distal">
+        <pose>-0.18612 -0.260931 1.27056 -1.58147 -0.00984402 -2.8447</pose>
+        <inertial>
+          <pose>0.012319 0 0 0 -0 0</pose>
+          <mass>0.1</mass>
+          <inertia>
+            <ixx>0.002</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.00201518</iyy>
+            <iyz>0</iyz>
+            <izz>0.00201518</izz>
+          </inertia>
+        </inertial>
+        <collision name="right_middle_distal_collision">
+          <pose>0 0 0 0 -1.57 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.9 0.9 0.9</scale>
+              <uri>model://robonaut/meshes/Finger_Dist.dae</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode />
+            </contact>
+            <friction>
+              <ode />
+            </friction>
+          </surface>
+        </collision>
+        <visual name="right_middle_distal_visual">
+          <pose>0 0 0 0 -1.57 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>model://robonaut/meshes/Finger_Dist.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <gravity>1</gravity>
+        <velocity_decay>
+          <linear>0</linear>
+          <angular>0</angular>
+        </velocity_decay>
+        <self_collide>0</self_collide>
+      </link>
+      <joint name="right_arm/hand/middle/joint3" type="revolute">
+        <child>right_middle_distal</child>
+        <parent>right_middle_medial</parent>
+        <axis>
+          <xyz>0.292433 -0.956226 -0.0106769</xyz>
+          <limit>
+            <lower>0</lower>
+            <upper>1.57</upper>
+            <effort>1e+07</effort>
+            <velocity>1000</velocity>
+          </limit>
+          <dynamics>
+            <damping>0.1</damping>
+          </dynamics>
+          <use_parent_model_frame>true</use_parent_model_frame>
+        </axis>
+      </joint>
+
+      <link name="right_little_proximal">
+        <pose>-0.10661 -0.191612 1.26001 -1.61453 0.0757148 -3.02</pose>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>0.001</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.001</iyy>
+            <iyz>0</iyz>
+            <izz>0.001</izz>
+          </inertia>
+        </inertial>
+        <collision name="right_little_proximal_collision">
+          <pose>0 0 0 0 -0 1.57</pose>
+          <geometry>
+            <mesh>
+              <scale>0.9 0.9 0.9</scale>
+              <uri>model://robonaut/meshes/Finger_Proximal.dae</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode />
+            </contact>
+            <friction>
+              <ode />
+            </friction>
+          </surface>
+        </collision>
+        <visual name="right_little_proximal_visual">
+          <pose>0 0 0 0 -0 1.57</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>model://robonaut/meshes/Finger_Proximal.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <gravity>1</gravity>
+        <velocity_decay>
+          <linear>0</linear>
+          <angular>0</angular>
+        </velocity_decay>
+        <self_collide>0</self_collide>
+      </link>
+      <joint name="right_arm/hand/little/joint0" type="revolute">
+        <child>right_little_proximal</child>
+        <parent>right_wrist_yaw</parent>
+        <axis>
+          <xyz>0.124457 -0.991267 -0.0435981</xyz>
+          <limit>
+            <lower>0</lower>
+            <upper>2.9671</upper>
+            <effort>1e+07</effort>
+            <velocity>1000</velocity>
+          </limit>
+          <dynamics>
+            <damping>0.1</damping>
+          </dynamics>
+          <use_parent_model_frame>true</use_parent_model_frame>
+        </axis>
+      </joint>
+      <link name="right_little_medial">
+      <pose>-0.15061 -0.196988 1.25665 -1.61453 0.0757148 -3.02</pose>
+      <inertial>
+        <pose>0 0 0 0 -0 0</pose>
+        <mass>0.05</mass>
+        <inertia>
+          <ixx>0.001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.001</iyy>
+          <iyz>0</iyz>
+          <izz>0.001</izz>
+        </inertia>
+      </inertial>
+      <collision name="right_little_medial_collision">
+        <pose>0 0 0 3.14 4.33681e-19 1.57</pose>
+        <geometry>
+          <mesh>
+            <scale>0.9 0.9 0.9</scale>
+            <uri>model://robonaut/meshes/Finger_Mid.dae</uri>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode />
+          </contact>
+          <friction>
+            <ode />
+          </friction>
+        </surface>
+      </collision>
+      <visual name="right_little_medial_visual">
+        <pose>0 0 0 3.14 4.33681e-19 1.57</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://robonaut/meshes/Finger_Mid.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <gravity>1</gravity>
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
+      <self_collide>0</self_collide>
+    </link>
+    <joint name="right_arm/hand/little/joint1" type="revolute">
+      <child>right_little_medial</child>
+      <parent>right_little_proximal</parent>
+      <axis>
+        <xyz>0.124457 -0.991267 -0.0435981</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>2.9671</upper>
+          <effort>1e+07</effort>
+          <velocity>1000</velocity>
+        </limit>
+        <dynamics>
+          <damping>0.1</damping>
+        </dynamics>
+        <use_parent_model_frame>true</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name="right_little_distal">
+      <pose>-0.18078 -0.200675 1.25434 -1.61453 0.0757148 -3.02</pose>
+      <inertial>
+        <pose>0.012319 0 0 0 -0 0</pose>
+        <mass>0.1</mass>
+        <inertia>
+          <ixx>0.002</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00201518</iyy>
+          <iyz>0</iyz>
+          <izz>0.00201518</izz>
+        </inertia>
+      </inertial>
+      <collision name="right_little_distal_collision">
+        <pose>0 0 0 0 -1.57 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.9 0.9 0.9</scale>
+            <uri>model://robonaut/meshes/Finger_Dist.dae</uri>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode />
+          </contact>
+          <friction>
+            <ode />
+          </friction>
+        </surface>
+      </collision>
+      <visual name="right_little_distal_visual">
+        <pose>0 0 0 0 -1.57 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://robonaut/meshes/Finger_Dist.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <gravity>1</gravity>
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
+      <self_collide>0</self_collide>
+    </link>
+    <joint name="right_arm/hand/little/joint2" type="revolute">
+      <child>right_little_distal</child>
+      <parent>right_little_medial</parent>
+      <axis>
+        <xyz>0.124457 -0.991267 -0.0435981</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>2.9671</upper>
+          <effort>1e+07</effort>
+          <velocity>1000</velocity>
+        </limit>
+        <dynamics>
+          <damping>0.1</damping>
+        </dynamics>
+        <use_parent_model_frame>true</use_parent_model_frame>
+      </axis>
+    </joint>
+
+      <link name="right_ring_proximal">
+        <pose>-0.11373 -0.215386 1.26615 -1.58019 -0.0110719 -2.96687</pose>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>0.001</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.001</iyy>
+            <iyz>0</iyz>
+            <izz>0.001</izz>
+          </inertia>
+        </inertial>
+        <collision name="right_ring_proximal_collision">
+          <pose>0 0 0 0 -0 1.57</pose>
+          <geometry>
+            <mesh>
+              <scale>0.9 0.9 0.9</scale>
+              <uri>model://robonaut/meshes/Finger_Proximal.dae</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode />
+            </contact>
+            <friction>
+              <ode />
+            </friction>
+          </surface>
+        </collision>
+        <visual name="right_ring_proximal_visual">
+          <pose>0 0 0 0 -0 1.57</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>model://robonaut/meshes/Finger_Proximal.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <gravity>1</gravity>
+        <velocity_decay>
+          <linear>0</linear>
+          <angular>0</angular>
+        </velocity_decay>
+        <self_collide>0</self_collide>
+      </link>
+      <joint name="right_arm/hand/ring/joint0" type="revolute">
+        <child>right_ring_proximal</child>
+        <parent>right_wrist_yaw</parent>
+        <axis>
+          <xyz>0.173722 -0.98475 -0.00939735</xyz>
+          <limit>
+            <lower>0</lower>
+            <upper>2.9671</upper>
+            <effort>1e+07</effort>
+            <velocity>1000</velocity>
+          </limit>
+          <dynamics>
+            <damping>0.1</damping>
+          </dynamics>
+          <use_parent_model_frame>true</use_parent_model_frame>
+        </axis>
+      </joint>
+          <link name="right_ring_medial">
+      <pose>-0.1575 -0.223112 1.26665 -1.58019 -0.0110719 -2.96687</pose>
+      <inertial>
+        <pose>0 0 0 0 -0 0</pose>
+        <mass>0.05</mass>
+        <inertia>
+          <ixx>0.001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.001</iyy>
+          <iyz>0</iyz>
+          <izz>0.001</izz>
+        </inertia>
+      </inertial>
+      <collision name="right_ring_medial_collision">
+        <pose>0 0 0 3.14 4.33681e-19 1.57</pose>
+        <geometry>
+          <mesh>
+            <scale>0.9 0.9 0.9</scale>
+            <uri>model://robonaut/meshes/Finger_Mid.dae</uri>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode />
+          </contact>
+          <friction>
+            <ode />
+          </friction>
+        </surface>
+      </collision>
+      <visual name="right_ring_medial_visual">
+        <pose>0 0 0 3.14 4.33681e-19 1.57</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://robonaut/meshes/Finger_Mid.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <gravity>1</gravity>
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
+      <self_collide>0</self_collide>
+    </link>
+    <joint name="right_arm/hand/ring/joint1" type="revolute">
+      <child>right_ring_medial</child>
+      <parent>right_ring_proximal</parent>
+      <axis>
+        <xyz>0.173722 -0.98475 -0.00939735</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>2.9671</upper>
+          <effort>1e+07</effort>
+          <velocity>1000</velocity>
+        </limit>
+        <dynamics>
+          <damping>0.1</damping>
+        </dynamics>
+        <use_parent_model_frame>true</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name="right_ring_distal">
+      <pose>-0.18751 -0.22841 1.26698 -1.58019 -0.0110719 -2.96687</pose>
+      <inertial>
+        <pose>0.012319 0 0 0 -0 0</pose>
+        <mass>0.1</mass>
+        <inertia>
+          <ixx>0.002</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00201518</iyy>
+          <iyz>0</iyz>
+          <izz>0.00201518</izz>
+        </inertia>
+      </inertial>
+      <collision name="right_ring_distal_collision">
+        <pose>0 0 0 0 -1.57 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.9 0.9 0.9</scale>
+            <uri>model://robonaut/meshes/Finger_Dist.dae</uri>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode />
+          </contact>
+          <friction>
+            <ode />
+          </friction>
+        </surface>
+      </collision>
+      <visual name="right_ring_distal_visual">
+        <pose>0 0 0 0 -1.57 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://robonaut/meshes/Finger_Dist.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <gravity>1</gravity>
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
+      <self_collide>0</self_collide>
+    </link>
+    <joint name="right_arm/hand/ring/joint2" type="revolute">
+      <child>right_ring_distal</child>
+      <parent>right_ring_medial</parent>
+      <axis>
+        <xyz>0.173722 -0.98475 -0.00939735</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>2.9671</upper>
+          <effort>1e+07</effort>
+          <velocity>1000</velocity>
+        </limit>
+        <dynamics>
+          <damping>0.1</damping>
+        </dynamics>
+        <use_parent_model_frame>true</use_parent_model_frame>
+      </axis>
+    </joint>
+
+      <link name="right_thumb_base">
+        <pose>-0.02713 -0.241254 1.24621 -1.58324 -0.166754 -1.53364</pose>
+        <inertial>
+          <pose>0.005969 0 0 0 -0 0</pose>
+          <mass>0.1</mass>
+          <inertia>
+            <ixx>0.002</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.00200356</iyy>
+            <iyz>-5.16988e-26</iyz>
+            <izz>0.00200356</izz>
+          </inertia>
+        </inertial>
+        <collision name="right_thumb_base_collision_right_thumb_proximal">
+          <pose>0.001938 0 0 -3.1408 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.9 0.9 0.9</scale>
+              <uri>model://robonaut/meshes/Left_Thumb_Carp.dae</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode />
+            </contact>
+            <friction>
+              <ode />
+            </friction>
+          </surface>
+        </collision>
+        <visual name="right_thumb_base_visual_right_thumb_proximal">
+          <pose>0.001938 0 0 -3.1408 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>model://robonaut/meshes/Left_Thumb_Carp.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <gravity>1</gravity>
+        <velocity_decay>
+          <linear>0</linear>
+          <angular>0</angular>
+        </velocity_decay>
+        <self_collide>0</self_collide>
+      </link>
+      <joint name="right_arm/hand/thumb/joint0" type="revolute">
+        <child>right_thumb_base</child>
+        <parent>right_wrist_yaw</parent>
+        <axis>
+          <xyz>0.999309 0.0350788 -0.0122717</xyz>
+          <limit>
+            <lower>0</lower>
+            <upper>1.2217</upper>
+            <effort>1e+07</effort>
+            <velocity>1000</velocity>
+          </limit>
+          <dynamics>
+            <damping>0.1</damping>
+          </dynamics>
+          <use_parent_model_frame>true</use_parent_model_frame>
+        </axis>
+      </joint>
+      <link name="right_thumb_medial_prime">
+      <pose>-0.02669 -0.253018 1.24819 3.12915 -0.166754 -1.53364</pose>
+      <inertial>
+        <pose>0 0 0 0 -0 0</pose>
+        <mass>0.05</mass>
+        <inertia>
+          <ixx>0.001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.001</iyy>
+          <iyz>0</iyz>
+          <izz>0.001</izz>
+        </inertia>
+      </inertial>
+      <collision name="right_thumb_medial_prime_collision">
+        <pose>-0 0 0 -1.57 -1.57 1.39418e-13</pose>
+        <geometry>
+          <mesh>
+            <scale>0.9 0.9 0.9</scale>
+            <uri>model://robonaut/meshes/Right_Thumb_MtCar.dae</uri>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode />
+          </contact>
+          <friction>
+            <ode />
+          </friction>
+        </surface>
+      </collision>
+      <visual name="right_thumb_medial_prime_visual">
+        <pose>-0 0 0 -1.57 -1.57 1.39418e-13</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://robonaut/meshes/Right_Thumb_MtCar.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <gravity>1</gravity>
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
+      <self_collide>0</self_collide>
+    </link>
+    <joint name="right_arm/hand/thumb/joint1" type="revolute">
+      <child>right_thumb_medial_prime</child>
+      <parent>right_thumb_base</parent>
+      <axis>
+        <xyz>-0.00627036 -0.166318 -0.986052</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>1.3963</upper>
+          <effort>1e+07</effort>
+          <velocity>1000</velocity>
+        </limit>
+        <dynamics>
+          <damping>0.1</damping>
+        </dynamics>
+        <use_parent_model_frame>true</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name="right_thumb_medial">
+      <pose>-0.02365 -0.282816 1.25577 -2.4559 -0.166754 -1.53364</pose>
+      <inertial>
+        <pose>0 0 0 0 -0 0</pose>
+        <mass>0.05</mass>
+        <inertia>
+          <ixx>0.001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.001</iyy>
+          <iyz>0</iyz>
+          <izz>0.001</izz>
+        </inertia>
+      </inertial>
+      <collision name="right_thumb_medial_collision">
+        <pose>0 0 0 3.14 4.33681e-19 1.57</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://robonaut/meshes/Thumb_Proximal.dae</uri>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode />
+          </contact>
+          <friction>
+            <ode />
+          </friction>
+        </surface>
+      </collision>
+      <visual name="right_thumb_medial_visual">
+        <pose>0 0 0 3.14 4.33681e-19 1.57</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://robonaut/meshes/Thumb_Proximal.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <gravity>1</gravity>
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
+      <self_collide>0</self_collide>
+    </link>
+    <joint name="right_arm/hand/thumb/joint2" type="revolute">
+      <child>right_thumb_medial</child>
+      <parent>right_thumb_medial_prime</parent>
+      <axis>
+        <xyz>0.637541 -0.104858 -0.763247</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>1.2217</upper>
+          <effort>1e+07</effort>
+          <velocity>1000</velocity>
+        </limit>
+        <dynamics>
+          <damping>0.1</damping>
+        </dynamics>
+        <use_parent_model_frame>true</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name="right_thumb_distal">
+      <pose>-0.0222 -0.321613 1.26231 -2.4559 -0.166754 -1.53364</pose>
+      <inertial>
+        <pose>0.01651 0 0 0 -0 0</pose>
+        <mass>0.1</mass>
+        <inertia>
+          <ixx>0.002</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00202726</iyy>
+          <iyz>0</iyz>
+          <izz>0.00202726</izz>
+        </inertia>
+      </inertial>
+      <collision name="right_thumb_distal_collision">
+        <pose>0 0 0 -0.00159265 0.00159265 3.14159</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://robonaut/meshes/Thumb_Dist.dae</uri>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode />
+          </contact>
+          <friction>
+            <ode />
+          </friction>
+        </surface>
+      </collision>
+      <visual name="right_thumb_distal_visual">
+        <pose>0 0 0 -0.00159265 0.00159265 3.14159</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://robonaut/meshes/Thumb_Dist.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <gravity>1</gravity>
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
+      <self_collide>0</self_collide>
+    </link>
+    <joint name="right_arm/hand/thumb/joint3" type="revolute">
+      <child>right_thumb_distal</child>
+      <parent>right_thumb_medial</parent>
+      <axis>
+        <xyz>0.637541 -0.104858 -0.763247</xyz>
+        <limit>
+          <lower>-0.5236</lower>
+          <upper>1.57</upper>
+          <effort>1e+07</effort>
+          <velocity>1000</velocity>
+        </limit>
+        <dynamics>
+          <damping>0.1</damping>
+        </dynamics>
+        <use_parent_model_frame>true</use_parent_model_frame>
+      </axis>
+    </joint>
+    </model>
+
+  </world>
+</sdf>
