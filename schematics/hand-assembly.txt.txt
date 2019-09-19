@@ -1,0 +1,16 @@
+3D Print all the hand files
+
+
+Soldering the A-star 328PB microcontroller:
+    - see a-star-328pb-micro-5v-20mhz.jpg
+    - try to solder at 300 degrees Celsius, with 3 seconds of contact at most
+    - avoid soldering neighboring pins one after another
+    - solder the L-shaped connector to the programmer, 
+      on the GND-GND-VCCIN-PD0-PD1-DTR/RTS side
+    - solder the pin arrays on the two long sides, while the pin arrays are
+      placed inside the holder part of the robot hand
+    - solder the important pins according to the wiring file: hand-wiring-schematic.png
+        pins 6, 9 and 11 for servo control
+        pins 18 and 19 for SDA and SCL
+        
+      
