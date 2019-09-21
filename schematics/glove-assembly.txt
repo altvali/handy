@@ -1,0 +1,40 @@
+Soldering
+=========
+All referenced names are from blender/glove/glove.blend
+
+- solder `gnd wire thumb finger`, `vcc wire thumb finger`
+  and `servo wire thumb finger` to `pot thumb finger`
+- solder `gnd wire index finger`, `vcc wire index finger`
+  and `servo wire index finger` to `pot index finger`
+- solder `gnd wire middle finger`, `vcc wire middle finger`
+  and `servo wire middle finger` to `pot middle finger`
+- pass the thumb wires through the thumb hole, `pot thumb finger` should be in
+  the final position at the end
+- pass the `servo wire thumb finger` through the wire exit hole
+- pass the index finger wires through the index holes, `pot index finger` should 
+  be in the final position at the end
+- pass the `servo wire index finger` through the wire exit hole
+- pass the middle finger wires through the thumb hole, `pot middle finger should 
+- pass the `servo wire thumb finger` through the wire exit hole
+- pass the `vcc wire exit` and the `gnd wire exit` through the wire exit hole
+- interweave `gnd wire thumb finger`, `gnd wire index finger`,
+  `gnd wire middle finger`, `gnd wire exit` and solder to get `gnd solder joint`
+- interweave `vcc wire thumb finger`, `vcc wire index finger`,
+  `vcc wire middle finger`, `vcc wire exit` and solder to get `vcc solder joint`
+- ensure `gnd solder joint` and `vcc solder joint` don't touch
+
+Glueing
+=======
+- test glove potentiometer readings using arduino/glove_read_test.ino
+- screw in `index finger`
+- glue and screw in `middle finger`
+- glue and screw in `thumb finger`
+- glue glove protection
+
+Sowing
+======
+- sow the fingers to the glove using instructions from `sowing the glove.png`
+  (black lines mean needle over texture, while lines mean needle under texture)
+    
+
+

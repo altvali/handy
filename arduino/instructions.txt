@@ -1,0 +1,9 @@
+If you're deploying code for an arduino leonardo:
+Board: Arduino Leonardo
+Programmer: AVRISP mkII
+
+If you're deploying code for an A-star 328PB:
+Board: Polulu A-star 328PB
+Programmer: STK500 for A-star 328PB
+version: 5V, 20MHz
+check COM port
