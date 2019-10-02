@@ -1,0 +1,235 @@
+<?xml version="1.0" ?>
+<sdf version="1.5">
+  <world name="default">
+
+    <!-- A global light source -->
+    <include>
+      <uri>model://sun</uri>
+    </include>
+
+    <!-- A ground plane -->
+    <include>
+      <uri>model://ground_plane</uri>
+    </include>
+
+    <model name="handy_prototype_hand">
+    	<pose>0 0 1.2 0 0 0</pose>
+    	<link name="base_hand">
+    		<pose>0 0 0 0 0 0</pose>
+    		<inertial>
+	          <mass>0.833963</mass>
+	          <inertia>
+	            <ixx>0.569747</ixx>
+	            <ixy>0.000761</ixy>
+	            <ixz>0.030506</ixz>
+	            <iyy>0.467712</iyy>
+	            <iyz>-0.035517</iyz>
+	            <izz>0.166268</izz>
+	          </inertia>
+	        </inertial>
+
+	        <collision name="base_hand_collision">
+	          <geometry>
+	            <mesh>
+	              <scale>0.1 0.1 0.1</scale>
+	              <uri>model://handy_hand/base_hand.dae</uri>
+	            </mesh>
+	          </geometry>
+	          <surface>
+	            <contact>
+	              <ode />
+	            </contact>
+	            <friction>
+	              <ode />
+	            </friction>
+	          </surface>
+	        </collision>
+	        <visual name="base_hand_visual">
+	    		<geometry>
+	    			<mesh>
+	    				<scale>0.1 0.1 0.1</scale>
+	    				<uri>model://handy_hand/base_hand.dae</uri>
+	    			</mesh>
+	    		</geometry>
+	    	</visual>
+    	</link>
+
+    	<link name="thumb_finger">
+    		<pose>0 0 0 0 0 0</pose>
+    		<inertial>
+	          <mass>0.658226</mass>
+	          <inertia>
+	            <ixx>0.363074</ixx>
+	            <ixy>0.000518</ixy>
+	            <ixz>0.003249</ixz>
+	            <iyy>0.225247</iyy>
+	            <iyz>-0.124435</iyz>
+	            <izz>0.151792</izz>
+	          </inertia>
+	        </inertial>
+
+	        <collision name="thumb_finger_collision">
+	          <geometry>
+	            <mesh>
+	              <scale>0.1 0.1 0.1</scale>
+	              <uri>model://handy_hand/thumb_finger.dae</uri>
+	            </mesh>
+	          </geometry>
+	          <surface>
+	            <contact>
+	              <ode />
+	            </contact>
+	            <friction>
+	              <ode />
+	            </friction>
+	          </surface>
+	        </collision>
+	        <visual name="thumb_finger_visual">
+	    		<geometry>
+	    			<mesh>
+	    				<scale>0.1 0.1 0.1</scale>
+	    				<uri>model://handy_hand/thumb_finger.dae</uri>
+	    			</mesh>
+	    		</geometry>
+	    	</visual>
+	    	<self_collide>1</self_collide>
+    	</link>
+
+    	<joint name="base_hand_thumb_finger_joint" type="revolute">
+    		<pose>0 0 0 0 0 0</pose>
+	        <child>thumb_finger</child>
+	        <parent>base_hand</parent>
+	        <axis>
+	          <xyz>0 0 1</xyz>
+	          <limit>
+	            <lower>-1.57</lower>
+	            <upper>0</upper>
+	            <effort>1e+07</effort>
+	            <velocity>1000</velocity>
+	          </limit>
+	          <dynamics>
+	            <damping>0.1</damping>
+	          </dynamics>
+	        </axis>
+	    </joint>
+
+		<link name="index_finger">
+    		<pose>0 1 7.76 0 0 0</pose>
+    		<inertial>
+	          <mass>0.263050</mass>
+	          <inertia>
+	            <ixx>0.067988</ixx>
+	            <ixy>0.0</ixy>
+	            <ixz>-0.034577</ixz>
+	            <iyy>0.89402</iyy>
+	            <iyz>0.0</iyz>
+	            <izz>0.027812</izz>
+	          </inertia>
+	        </inertial>
+
+	        <collision name="index_finger_collision">
+	          <geometry>
+	            <mesh>
+	              <scale>0.1 0.1 0.1</scale>
+	              <uri>model://handy_hand/index_finger.dae</uri>
+	            </mesh>
+	          </geometry>
+	          <surface>
+	            <contact>
+	              <ode />
+	            </contact>
+	            <friction>
+	              <ode />
+	            </friction>
+	          </surface>
+	        </collision>
+	        <visual name="index_finger_visual">
+	    		<geometry>
+	    			<mesh>
+	    				<scale>0.1 0.1 0.1</scale>
+	    				<uri>model://handy_hand/index_finger.dae</uri>
+	    			</mesh>
+	    		</geometry>
+	    	</visual>
+	    	<self_collide>1</self_collide>
+    	</link>
+
+    	<joint name="base_hand_index_finger_joint" type="revolute">
+    		<pose>0 0 0 0 0 0</pose>
+	        <child>index_finger</child>
+	        <parent>base_hand</parent>
+	        <axis>
+	          <xyz>0 1 0</xyz>
+	          <limit>
+	            <lower>0</lower>
+	            <upper>1.57</upper>
+	            <effort>1e+07</effort>
+	            <velocity>1000</velocity>
+	          </limit>
+	          <dynamics>
+	            <damping>0.1</damping>
+	          </dynamics>
+	        </axis>
+	    </joint>
+
+		<link name="middle_finger">
+    		<pose>0 -1 7.76 0 0 0</pose>
+    		<inertial>
+	          <mass>0.263050</mass>
+	          <inertia>
+	            <ixx>0.067988</ixx>
+	            <ixy>0.0</ixy>
+	            <ixz>-0.034577</ixz>
+	            <iyy>0.89402</iyy>
+	            <iyz>0.0</iyz>
+	            <izz>0.027812</izz>
+	          </inertia>
+	        </inertial>
+
+	        <collision name="middle_finger_collision">
+	          <geometry>
+	            <mesh>
+	              <scale>0.1 0.1 0.1</scale>
+	              <uri>model://handy_hand/index_finger.dae</uri>
+	            </mesh>
+	          </geometry>
+	          <surface>
+	            <contact>
+	              <ode />
+	            </contact>
+	            <friction>
+	              <ode />
+	            </friction>
+	          </surface>
+	        </collision>
+	        <visual name="middle_finger_visual">
+	    		<geometry>
+	    			<mesh>
+	    				<scale>0.1 0.1 0.1</scale>
+	    				<uri>model://handy_hand/index_finger.dae</uri>
+	    			</mesh>
+	    		</geometry>
+	    	</visual>
+	    	<self_collide>1</self_collide>
+    	</link>
+
+    	<joint name="base_hand_middle_finger_joint" type="revolute">
+    		<pose>0 0 0 0 0 0</pose>
+	        <child>middle_finger</child>
+	        <parent>base_hand</parent>
+	        <axis>
+	          <xyz>0 1 0</xyz>
+	          <limit>
+	            <lower>0</lower>
+	            <upper>1.57</upper>
+	            <effort>1e+07</effort>
+	            <velocity>1000</velocity>
+	          </limit>
+	          <dynamics>
+	            <damping>0.1</damping>
+	          </dynamics>
+	        </axis>
+	    </joint>
+	</model>
+  </world>
+</sdf>
